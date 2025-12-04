@@ -1,1 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&family=Patrick+Hand&display=swap');
 @import "tailwindcss";
+* {
+    font-family: 'Kedebideri', sans-serif;
+}
