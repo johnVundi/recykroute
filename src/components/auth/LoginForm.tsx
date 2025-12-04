@@ -38,7 +38,7 @@ const LoginForm = () => {
 
     return (
         <div className='flex items-center justify-center min-h-screen w-full bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 p-4'>
-            <div className='w-full max-w-6xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
+            <div className='w-full max-w-5xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
                 {/* Left Side - Image Background */}
                 <div className='hidden md:flex md:w-1/2 items-center justify-center p-8 relative'>
                     {/* Background Image */}
