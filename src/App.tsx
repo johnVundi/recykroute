@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import LandingPage from "./pages/LandingPage"
 import LoginForm from "./components/auth/LoginForm"
 import RegistrationForm from "./components/auth/RegistrationForm"
-import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer } from "react-toastify"
 import DashboardPage from "./pages/DashboardPage"
 
 
