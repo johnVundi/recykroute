@@ -18,7 +18,9 @@ const LandingPage = () => {
 
             <div className='bg-black/30 p-10 backdrop-blur-3xl rounded-lg shadow-lg'>
                 <h1 className='text-4xl text-white font-bold mb-4 text-center'>
-                    Welcome to Recykroute
+                    Welcome to <span className='text-sky-500 logo-text font-semibold capitalize'>
+                        RECYKROUTE
+                    </span> 
                 </h1>
                 <p className='text-lg mb-6 text-gray-200 text-center'>Your ultimate recycling route planner</p>
 

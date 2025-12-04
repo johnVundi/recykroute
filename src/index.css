@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Coiny&family=Kedebideri:wght@400;500;600;700;800;900&family=Patrick+Hand&family=Trocchi&display=swap');
 @import "tailwindcss";
 * {
     font-family: 'Kedebideri', sans-serif;
+}
+.logo-text {
+    font-family: "Coiny", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }

@@ -1,19 +1,31 @@
-import { Eye, EyeOff, Mail, Lock, LogIn, User, Recycle } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, LogIn, User, Recycle, Phone, MapPin } from 'lucide-react'
 import register from '../../assets/images/login2.jpg'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { addUser, findUserByEmail, findUserByUsername } from '../../data/users'
+import { addUser, findUserByEmail } from '../../data/users'
 
 const RegistrationForm = () => {
-    const [username, setUsername] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [secondName, setSecondName] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [ward, setWard] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     const navigate = useNavigate();
 
+    const validatePassword = () => {
+        if (password !== confirmPassword) {
+            toast.error('Passwords do not match. Please try again.');
+            return false;
+        }
+        return true;
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -29,12 +41,12 @@ const RegistrationForm = () => {
             }
 
             // Check if username already exists same na hii functionality
-            const existingUserByUsername = findUserByUsername(username);
-            if (existingUserByUsername) {
-                setIsLoading(false);
-                toast.error('Username already taken. Please choose a different username.');
-                return;
-            }
+            // const existingUserByUsername = findUserByUsername(username);
+            // if (existingUserByUsername) {
+            //     setIsLoading(false);
+            //     toast.error('Username already taken. Please choose a different username.');
+            //     return;
+            // }
 
             // Validate password length
             if (password.length < 6) {
@@ -43,8 +55,14 @@ const RegistrationForm = () => {
                 return;
             }
 
+            // Validate password match
+            if (!validatePassword()) {
+                setIsLoading(false);
+                return;
+            }
+
             // Create new user
-            const newUser = addUser(username, email, password);
+            const newUser = addUser(firstName, secondName, email, phone, ward, password);
             setIsLoading(false);
             toast.success('Account created successfully! Please login.');
 
@@ -55,9 +73,51 @@ const RegistrationForm = () => {
             navigate('/login');
         }, 1500)
     }
+
+
+
+    const wards = [
+        "Athi River",
+        "Kinanie",
+        "Muthwani",
+        "Syokimau / Mlolongo",
+        "Kalama",
+        "Machakos Central",
+        "Mumbuni North",
+        "Muvuti / Kiima - Kimwe",
+        "Mutituni",
+        "Kathiani Central",
+        "Mitamboni",
+        "Upper Kaewa / Iveti",
+        "Lower Kaewa / Kaani",
+        "Kyeleni",
+        "Matungulu East",
+        "Matungulu North",
+        "Matungulu West",
+        "Tala",
+        "Kangundo Central",
+        "Kangundo East",
+        "Kangundo North",
+        "Kangundo West",
+        "Kivaa",
+        "Masinga Central",
+        "Ekalakala",
+        "Muthesya",
+        "Ndalani",
+        "Katangi",
+        "Kithimani",
+        "Matuu",
+        "Ikombe",
+        "Masii",
+        "Mbiuni",
+        "Makutano / Mwala",
+        "Muthetheni",
+        "Wamunyu"
+    ]
+
     return (
         <div className='flex items-center justify-center min-h-screen w-full bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 p-4'>
-            <div className='w-full max-w-6xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
+            <div className='w-full max-w-7xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
                 {/* Left Side - Image Background */}
                 <div className='hidden md:flex md:w-1/2 items-center justify-center p-8 relative'>
                     {/* Background Image */}
@@ -73,7 +133,7 @@ const RegistrationForm = () => {
                         <div className='bg-white/10 backdrop-blur-xl rounded-xl p-12 border border-white/20'>
                             <div className='flex items-center mb-3 text-white justify-center gap-2'>
                                 <Recycle size={45} />
-                                <h2 className='text-5xl  flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
+                                <h2 className='text-5xl logo-text flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
                                     RECYKROUTE
                                 </h2>
                             </div>
@@ -94,7 +154,7 @@ const RegistrationForm = () => {
 
                         <div className='flex md:hidden text-white items-center mb-3 justify-center gap-2'>
                             <Recycle size={30} />
-                            <h2 className='md:text-5xl text-3xl flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
+                            <h2 className='md:text-5xl logo-text text-3xl flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
                                 RECYKROUTE
                             </h2>
                         </div>
@@ -112,26 +172,97 @@ const RegistrationForm = () => {
 
                     {/* Form */}
                     <form onSubmit={handleSubmit} className='space-y-6'>
-                        {/* Username Input */}
-                        <div>
-                            <label htmlFor='username' className='block text-sm font-medium text-gray-300 mb-2'>
-                                Username
-                            </label>
-                            <div className='relative'>
-                                <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                                    <User className='h-5 w-5 text-gray-500' />
+                        {/* First Name Input */}
+
+                        <div className='flex flex-row gap-2 w-full items-center'>
+                            <div className='w-full'>
+                                <label htmlFor='firstName' className='block text-sm font-medium text-gray-300 mb-2'>
+                                    First Name
+                                </label>
+                                <div className='relative'>
+                                    <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+                                        <User className='h-5 w-5 text-gray-500' />
+                                    </div>
+                                    <input
+                                        id='firstName'
+                                        type='text'
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        placeholder='Enter your first name'
+                                        required
+                                        className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
+                                    />
                                 </div>
-                                <input
-                                    id='username'
-                                    type='text'
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                    placeholder='Enter your username'
-                                    required
-                                    className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
-                                />
+                            </div>
+
+                            <div className='w-full'>
+                                <label htmlFor='username' className='block text-sm font-medium text-gray-300 mb-2'>
+                                    Second Name
+                                </label>
+                                <div className='relative'>
+                                    <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+                                        <User className='h-5 w-5 text-gray-500' />
+                                    </div>
+                                    <input
+                                        id='secondName'
+                                        type='text'
+                                        value={secondName}
+                                        onChange={(e) => setSecondName(e.target.value)}
+                                        placeholder='Enter your second name'
+                                        required
+                                        className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
+                                    />
+                                </div>
                             </div>
                         </div>
+
+                        <div className='flex md:flex-row flex-col gap-2 w-full items-center'>
+                            {/* Phone Input */}
+                            <div className='w-full'>
+                                <label htmlFor='phone' className='block text-sm font-medium text-gray-300 mb-2'>
+                                    Phone Number
+                                </label>
+                                <div className='relative'>
+                                    <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+                                        <Phone className='h-5 w-5 text-gray-500' />
+                                    </div>
+                                    <input
+                                        id='phone'
+                                        type='tel'
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        placeholder='Enter your phone number'
+                                        required
+                                        className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='w-full'>
+                                <label htmlFor='email' className='block text-sm font-medium text-gray-300 mb-2'>
+                                    Ward
+                                </label>
+                                <div className='relative'>
+                                    <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+                                        <MapPin className='h-5 w-5 text-gray-500' />
+                                    </div>
+                                    <select
+                                        id='ward'
+                                        value={ward}
+                                        onChange={(e) => setWard(e.target.value)}
+                                        required
+                                        className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
+                                    >
+                                        <option className='text-gray-200' value='' disabled>Select your ward</option>
+                                        {wards.map((ward, index) => (
+                                            <option key={index} value={ward}>{ward}</option>
+                                        ))}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
 
                         {/* Email Input */}
                         <div>
@@ -143,7 +274,7 @@ const RegistrationForm = () => {
                                     <Mail className='h-5 w-5 text-gray-500' />
                                 </div>
                                 <input
-                                    id='phone'
+                                    id='email'
                                     type='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -186,7 +317,36 @@ const RegistrationForm = () => {
                             </div>
                         </div>
 
-
+                        <div>
+                            <label htmlFor='password' className='block text-sm font-medium text-gray-300 mb-2'>
+                                Confirm Password
+                            </label>
+                            <div className='relative'>
+                                <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+                                    <Lock className='h-5 w-5 text-gray-500' />
+                                </div>
+                                <input
+                                    id='confirmPassword'
+                                    type={showConfirmPassword ? 'text' : 'password'}
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    placeholder='••••••••'
+                                    required
+                                    className='w-full pl-10 pr-12 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
+                                />
+                                <button
+                                    type='button'
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    className='absolute cursor-pointer inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-300'
+                                >
+                                    {showConfirmPassword ? (
+                                        <EyeOff className='h-5 w-5' />
+                                    ) : (
+                                        <Eye className='h-5 w-5' />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
 
                         {/* Submit Button */}
                         <button

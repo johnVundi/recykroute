@@ -1,7 +1,10 @@
 // Dummy user data for authentication simulation
 export interface User {
     id: string;
-    username: string;
+    firstName: string;
+    secondName: string;
+    phoneNumber: string;
+    ward: string;
     email: string;
     password: string;
     createdAt: string;
@@ -11,7 +14,10 @@ export interface User {
 export const users: User[] = [
     {
         id: '1',
-        username: 'testuser',
+        firstName: 'Test',
+        secondName: 'User',
+        phoneNumber: '1234567890',
+        ward: 'Athi River',
         email: 'test@gmail.com',
         password: 'password123',
         createdAt: new Date().toISOString(),
@@ -23,14 +29,17 @@ export const findUserByEmail = (email: string): User | undefined => {
     return users.find(user => user.email.toLowerCase() === email.toLowerCase());
 };
 
-export const findUserByUsername = (username: string): User | undefined => {
-    return users.find(user => user.username.toLowerCase() === username.toLowerCase());
+export const findByPhone = (phoneNumber: string): User | undefined => {
+    return users.find(user => user.phoneNumber === phoneNumber);
 };
 
-export const addUser = (username: string, email: string, password: string): User => {
+export const addUser = (firstName: string, secondName: string, email: string, phoneNumber: string, ward: string, password: string): User => {
     const newUser: User = {
         id: (users.length + 1).toString(),
-        username,
+        firstName,
+        secondName,
+        phoneNumber,
+        ward,
         email,
         password,
         createdAt: new Date().toISOString(),
