@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { Eye, EyeOff, Mail, Lock, LogIn, Recycle } from 'lucide-react'
 import login from '../../assets/images/login.jpg'
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import { validateCredentials } from '../../data/users'
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -8,15 +11,26 @@ const LoginForm = () => {
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsLoading(true)
 
         setTimeout(() => {
-            setIsLoading(false)
-            alert('Verification successfull')
+            const user = validateCredentials(email, password);
 
-        }, 2000)
+            if (user) {
+                setIsLoading(false)
+                toast.success(`Welcome back, ${user.username}!`);
+                // Store user info in localStorage for session management
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                navigate('/dashboard');
+            } else {
+                setIsLoading(false)
+                toast.error('Invalid email or password. Please try again.');
+            }
+        }, 1000)
     }
 
     return (
@@ -89,7 +103,6 @@ const LoginForm = () => {
                                 <input
                                     id='email'
                                     type='email'
-                                    maxLength={10}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder='Enter your email'

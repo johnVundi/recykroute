@@ -1,6 +1,9 @@
-import { Eye, EyeOff, Mail, Lock, LogIn, Phone, CircleCheckBig, User, Recycle } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, LogIn, User, Recycle } from 'lucide-react'
 import register from '../../assets/images/login2.jpg'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { addUser, findUserByEmail, findUserByUsername } from '../../data/users'
 
 const RegistrationForm = () => {
     const [username, setUsername] = useState('')
@@ -9,16 +12,48 @@ const RegistrationForm = () => {
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
+    const navigate = useNavigate();
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsLoading(true)
-        // Add your login logic here
-
 
         setTimeout(() => {
-            setIsLoading(false)
-        }, 2000)
+            // Check if email already exists but hii ni kazi ya Backend this is only for testing
+            const existingUserByEmail = findUserByEmail(email);
+            if (existingUserByEmail) {
+                setIsLoading(false);
+                toast.error('Email already registered. Please use a different email.');
+                return;
+            }
+
+            // Check if username already exists same na hii functionality
+            const existingUserByUsername = findUserByUsername(username);
+            if (existingUserByUsername) {
+                setIsLoading(false);
+                toast.error('Username already taken. Please choose a different username.');
+                return;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                setIsLoading(false);
+                toast.error('Password must be at least 6 characters long.');
+                return;
+            }
+
+            // Create new user
+            const newUser = addUser(username, email, password);
+            setIsLoading(false);
+            toast.success('Account created successfully! Please login.');
+
+            // Store user info in localStorage
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+            // Redirect to login or home page
+            navigate('/login');
+        }, 1500)
     }
     return (
         <div className='flex items-center justify-center min-h-screen w-full bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 p-4'>
@@ -110,7 +145,6 @@ const RegistrationForm = () => {
                                 <input
                                     id='phone'
                                     type='email'
-                                    maxLength={50}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder='Enter your email'
