@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import bg from './assets/images/bg.jpg'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='flex flex-col items-center p-2 justify-center h-screen w-full'
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+        }}
+      >
+
+        <div className='bg-black/30 p-10 backdrop-blur-3xl rounded-lg shadow-lg'>
+          <h1 className='text-4xl text-white font-bold mb-4 text-center'>
+            Welcome to Recykroute
+          </h1>
+          <p className='text-lg mb-6 text-gray-200 text-center'>Your ultimate recycling route planner</p>
+
+          <div className='flex items-center justify-center  space-x-4'>
+
+            <button className='bg-blue-500 text-white px-8 py-2 cursor-pointer rounded hover:bg-blue-600 transition'>
+              Get Started
+            </button>
+
+          </div>
+
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
