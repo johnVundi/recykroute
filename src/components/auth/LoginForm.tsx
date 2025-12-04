@@ -18,11 +18,11 @@ const LoginForm = () => {
         setIsLoading(true)
 
         setTimeout(() => {
-            const user = validateCredentials(email, password);
+            const user = validateCredentials(email, password) || localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser') as string) : null;
 
             if (user) {
                 setIsLoading(false)
-                toast.success(`Welcome back, ${user.username}!`);
+                toast.success(`Welcome back, ${user.firstName} ${user.secondName}!`);
                 // Store user info in localStorage for session management
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 navigate('/dashboard');
@@ -33,9 +33,12 @@ const LoginForm = () => {
         }, 1000)
     }
 
+
+
+
     return (
         <div className='flex items-center justify-center min-h-screen w-full bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 p-4'>
-            <div className='w-full max-w-6xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
+            <div className='w-full max-w-5xl flex shadow-2xl rounded-lg overflow-hidden bg-gray-800 border border-gray-700'>
                 {/* Left Side - Image Background */}
                 <div className='hidden md:flex md:w-1/2 items-center justify-center p-8 relative'>
                     {/* Background Image */}
@@ -52,7 +55,7 @@ const LoginForm = () => {
                         <div className='bg-white/10 backdrop-blur-xl rounded-xl p-12 border border-white/20'>
                             <div className='flex items-center mb-3 text-white justify-center gap-2'>
                                 <Recycle size={45} />
-                                <h2 className='text-5xl capitalize flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
+                                <h2 className='text-5xl logo-text capitalize flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
                                     RECYKROUTE
                                 </h2>
                             </div>
@@ -73,7 +76,7 @@ const LoginForm = () => {
 
                         <div className='flex md:hidden text-white items-center mb-3 justify-center gap-2'>
                             <Recycle size={30} />
-                            <h2 className='md:text-5xl text-3xl flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
+                            <h2 className='md:text-5xl logo-text text-3xl flex items-center gap-2 font-bold text-white  drop-shadow-lg'>
                                 RECYKROUTE
                             </h2>
                         </div>
