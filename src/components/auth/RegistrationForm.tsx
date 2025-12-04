@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { addUser, findUserByEmail } from '../../data/users'
+import { wards } from '../../data/wardList'
 
 const RegistrationForm = () => {
     const [firstName, setFirstName] = useState('')
@@ -76,44 +77,7 @@ const RegistrationForm = () => {
 
 
 
-    const wards = [
-        "Athi River",
-        "Kinanie",
-        "Muthwani",
-        "Syokimau / Mlolongo",
-        "Kalama",
-        "Machakos Central",
-        "Mumbuni North",
-        "Muvuti / Kiima - Kimwe",
-        "Mutituni",
-        "Kathiani Central",
-        "Mitamboni",
-        "Upper Kaewa / Iveti",
-        "Lower Kaewa / Kaani",
-        "Kyeleni",
-        "Matungulu East",
-        "Matungulu North",
-        "Matungulu West",
-        "Tala",
-        "Kangundo Central",
-        "Kangundo East",
-        "Kangundo North",
-        "Kangundo West",
-        "Kivaa",
-        "Masinga Central",
-        "Ekalakala",
-        "Muthesya",
-        "Ndalani",
-        "Katangi",
-        "Kithimani",
-        "Matuu",
-        "Ikombe",
-        "Masii",
-        "Mbiuni",
-        "Makutano / Mwala",
-        "Muthetheni",
-        "Wamunyu"
-    ]
+
 
     return (
         <div className='flex items-center justify-center min-h-screen w-full bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 p-4'>
@@ -254,8 +218,8 @@ const RegistrationForm = () => {
                                         className='w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0277c7] focus:border-transparent transition-all duration-200'
                                     >
                                         <option className='text-gray-200' value='' disabled>Select your ward</option>
-                                        {wards.map((ward, index) => (
-                                            <option key={index} value={ward}>{ward}</option>
+                                        {wards.map((wardItem: string, index: number) => (
+                                            <option key={index} value={wardItem}>{wardItem}</option>
                                         ))}
 
                                     </select>

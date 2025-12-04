@@ -59,3 +59,5 @@ export const validateCredentials = (email: string, password: string): User | nul
 export const getAllUsers = (): User[] => {
     return users;
 };
+
+
