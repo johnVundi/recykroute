@@ -71,7 +71,7 @@ const RegistrationForm = () => {
             localStorage.setItem('currentUser', JSON.stringify(newUser));
 
             // Redirect to login or home page
-            navigate('/login');
+            navigate('/onboarding');
         }, 1500)
     }
 
@@ -353,7 +353,7 @@ const RegistrationForm = () => {
                     <p className='mt-8 text-center text-md font-semibold text-gray-400'>
                         Already have an account?{' '}
                         <a
-                            href='/login'
+                            href='/'
                             className='text-[#0277c7] underline hover:text-[#025ea1] font-semibold transition-colors'
                         >
                             Login
