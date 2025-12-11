@@ -25,7 +25,7 @@ const LoginForm = () => {
                 toast.success(`Welcome back, ${user.firstName} ${user.secondName}!`);
                 // Store user info in localStorage for session management
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                navigate('/dashboard');
+                navigate('/onboarding');
             } else {
                 setIsLoading(false)
                 toast.error('Invalid email or password. Please try again.');
