@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Home, Building2, Hotel, Briefcase, MoreHorizontal, MapPin, Package, Calendar, Recycle, CheckCircle2, ChevronRight, Popcorn } from 'lucide-react'
+import { Home, Building2, Hotel, Briefcase, MoreHorizontal, MapPin, Package, Calendar, Recycle, CheckCircle2, ChevronRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import bg from '../../assets/images/bg.jpg'
