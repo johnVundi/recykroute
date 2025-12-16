@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Users, UsersRound, Truck, Package, DollarSign, CheckCircle2, ChevronRight, Recycle, ShoppingCart, Bike, Car } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import bg from '../../assets/images/bg.jpg'
+import bg from '../../assets/images/tashes.jpg'
 
 interface AggregatorOnboardingData {
     groupName: string
@@ -142,15 +142,15 @@ const AggregatorOnboarding = () => {
     const progressPercentage = (step / 6) * 100
 
     return (
-        <div className='min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center p-4'
+        <div className='min-h-screen flex items-center justify-center'
             style={{
                 backgroundImage: `url(${bg})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
             }}>
-
-            <div className='w-full max-w-2xl bg-gray-800 rounded-lg shadow-2xl border border-gray-700 overflow-hidden'>
+            <div className=' bg-black/70 flex flex-col p-4 justify-center items-center min-h-screen w-full'>
+                <div className='w-full max-w-2xl backdrop-blur-xl rounded-lg bg-gray-800 shadow-2xl border border-gray-700 overflow-hidden'>
                 {/* Header */}
                 <div className='bg-[#0277c7] p-4'>
                     <h1 className='text-3xl font-bold text-white mb-2 flex items-center gap-2'>
@@ -479,7 +479,9 @@ const AggregatorOnboarding = () => {
                         </button>
                     )}
                 </div>
-            </div>
+                </div>
+</div>
+            
         </div>
     )
 }

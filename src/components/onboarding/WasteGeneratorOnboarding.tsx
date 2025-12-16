@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Home, Building2, Hotel, Briefcase, MoreHorizontal, MapPin, Package, Calendar, Recycle, CheckCircle2, ChevronRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import bg from '../../assets/images/bg.jpg'
+import bg from '../../assets/images/tras.jpg'
 
 interface OnboardingData {
     propertyType: string
@@ -126,7 +126,7 @@ const WasteGeneratorOnboarding = () => {
         >
             <div className='w-full max-w-2xl bg-gray-800 rounded-lg shadow-2xl border border-gray-700 overflow-hidden'>
                 {/* Header */}
-                <div className='bg-linear-330-to-r from-sky-600 to-sky-400 p-6'>
+                <div className='bg-linear-to-tr from-sky-800 via-sky-950 to-sky-900 p-6'>
                     <h1 className='md:text-3xl text-xl text-center font-bold text-white mb-2 flex items-center gap-2'>
                         <Recycle className='w-8 h-8 text-sky-400' />
                         Waste Generator Onboarding
@@ -134,7 +134,7 @@ const WasteGeneratorOnboarding = () => {
                     <p className='text-sky-50 text-center mt-4'>Help us allocate pickups correctly</p>
 
                     {/* Progress Bar */}
-                    <div className='mt-4 bg-gray-500/30 rounded-full h-2 overflow-hidden'>
+                    <div className='mt-4 bg-gray-400/30 rounded-full h-2 overflow-hidden'>
                         <div
                             className={` h-full 
                                 ${progressPercentage === 20 ? 'bg-red-500'
