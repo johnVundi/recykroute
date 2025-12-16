@@ -104,7 +104,7 @@ const LandingPage = () => {
                         <div className='flex items-center justify-center space-x-3'>
                             <span className='text-5xl'>♻️</span>
                             <h1 className='text-5xl md:text-7xl font-bold'>
-                                <span className='bg-linear-to-r logo-text from-cyan-400 via-blue-600 to-sky-500 bg-clip-text text-transparent'>
+                                <span className='bg-linear-to-r logo-text from-cyan-400 via-sky-600 to-blue-500 bg-clip-text text-transparent'>
                                     RECYKROUTE
                                 </span>
                             </h1>
@@ -114,9 +114,9 @@ const LandingPage = () => {
                         Your Ultimate Recycling Route Planner
                     </p>
                     <div className='flex items-center justify-center space-x-2'>
-                        <div className='h-px w-12 bg-linear-to-r from-transparent to-sky-400'></div>
-                        <p className='text-sky-400 text-sm uppercase tracking-widest'>Smart • Efficient • Sustainable</p>
-                        <div className='h-px w-12 bg-linear-to-l from-transparent to-sky-400'></div>
+                        <div className='h-px w-12 bg-linear-to-r from-transparent to-sky-400' />
+                        <p className='text-sky-400 text-md uppercase tracking-widest'>Smart • Efficient • Sustainable</p>
+                        <div className='h-px w-12 bg-linear-to-l from-transparent to-sky-400' />
                     </div>
                 </div>
 
