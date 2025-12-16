@@ -158,7 +158,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <UserCog className='w-6 h-6 text-orange-400' />
+                                    <UserCog className='w-6 h-6 text-orange-800' />
                                     Select Your Role
                                 </h2>
                                 <p className='text-gray-400 mb-6'>What is your position in the county government?</p>
@@ -170,7 +170,7 @@ const CountOfficialsOnboarding = () => {
                                         key={role.value}
                                         onClick={() => handleInputChange('role', role.value)}
                                         className={`w-full p-4 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.role === role.value
-                                            ? 'border-orange-400 bg-orange-400/10'
+                                            ? 'border-orange-800 bg-orange-800/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
@@ -197,7 +197,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <Lock className='w-6 h-6 text-orange-400' />
+                                    <Lock className='w-6 h-6 text-orange-800' />
                                     Permission Level
                                 </h2>
                                 <p className='text-gray-400 mb-6'>What level of system access do you need?</p>
@@ -209,13 +209,13 @@ const CountOfficialsOnboarding = () => {
                                         key={level.value}
                                         onClick={() => handleInputChange('permissionLevel', level.value)}
                                         className={`w-full p-4 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.permissionLevel === level.value
-                                            ? 'border-orange-400 bg-orange-400/10'
+                                            ? 'border-orange-800 bg-orange-800/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
                                         <div className='flex items-center justify-between'>
                                             <div className='flex items-center gap-3'>
-                                                <span className='text-3xl'>{level.icon}</span>
+                                                {/* <span className='text-3xl'>{level.icon}</span> */}
                                                 <div>
                                                     <h3 className={`font-semibold text-lg
                                                         ${level.color === 'blue' ? 'text-white'
@@ -228,7 +228,7 @@ const CountOfficialsOnboarding = () => {
                                                 </div>
                                             </div>
                                             {formData.permissionLevel === level.value && (
-                                                <CheckCircle2 className='w-6 h-6 text-orange-400' />
+                                                <CheckCircle2 className='w-6 h-6 text-orange-800' />
                                             )}
                                         </div>
                                     </button>
@@ -257,7 +257,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <Building2 className='w-6 h-6 text-orange-400' />
+                                    <Building2 className='w-6 h-6 text-orange-800' />
                                     Department
                                 </h2>
                                 <p className='text-gray-400 mb-6'>Which department are you part of?</p>
@@ -269,17 +269,17 @@ const CountOfficialsOnboarding = () => {
                                         key={dept.value}
                                         onClick={() => handleInputChange('department', dept.value)}
                                         className={`w-full p-5 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.department === dept.value
-                                            ? 'border-orange-400 bg-orange-400/10'
+                                            ? 'border-orange-800 bg-orange-800/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
                                         <div className='flex items-center justify-between'>
                                             <div className='flex items-center gap-3'>
-                                                <span className='text-4xl'>{dept.icon}</span>
+                                                {/* <span className='text-4xl'>{dept.icon}</span> */}
                                                 <h3 className='text-white font-semibold text-xl'>{dept.label}</h3>
                                             </div>
                                             {formData.department === dept.value && (
-                                                <CheckCircle2 className='w-7 h-7 text-orange-400' />
+                                                <CheckCircle2 className='w-7 h-7 text-orange-800' />
                                             )}
                                         </div>
                                     </button>
@@ -289,7 +289,7 @@ const CountOfficialsOnboarding = () => {
                             {/* Summary Card */}
                             <div className='mt-8 p-5 bg-gray-700/50 rounded-lg border border-gray-600'>
                                 <h3 className='text-white font-semibold mb-3 flex items-center gap-2'>
-                                    <CheckCircle2 className='w-5 h-5 text-orange-400' />
+                                    <CheckCircle2 className='w-5 h-5 text-orange-800' />
                                     Profile Summary
                                 </h3>
                                 <div className='space-y-2 text-sm'>
@@ -332,7 +332,7 @@ const CountOfficialsOnboarding = () => {
                     {step < 3 ? (
                         <button
                             onClick={handleNext}
-                            className='px-10 py-2.5 bg-blue-500 cursor-pointer text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2'
+                            className='px-10 py-2.5 bg-orange-800 cursor-pointer text-white rounded-lg font-semibold hover:bg-orange-800 transition-colors flex items-center gap-2'
                         >
                             Next
                             <ChevronRight className='w-5 h-5' />

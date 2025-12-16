@@ -58,7 +58,7 @@ function GettingReadyMain({ onComplete, userType }: GettingReadyProps) {
             },
             after: {
                 title: "All set!",
-                subtitle: "Time to customize your experience"
+                subtitle: "Time to customize your area of expertise"
             }
         }
     ];
@@ -202,8 +202,8 @@ function OnboardingFinished() {
         <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="flex flex-col items-center text-center gap-6 p-12 bg-white/5 rounded-2xl border border-white/10 max-w-xl animate-fade-in-up">
                 <OnboardingIcon icon="check-circle" color="success" />
-                <h1 className='md:text-2xl text-xl text-sky-500 logo-text font-semibold capitalize  mb-4 text-center'>
-                    Onboarding On RECYKROUTE
+                <h1 className='md:text-3xl text-xl text-sky-500  font-semibold capitalize  mb-4 text-center'>
+                    Hello There! 👋
                 </h1>
                 <h2 className="text-3xl font-bold text-white m-0">All set and ready to go!</h2>
                 <p className="text-lg text-white/70 m-0">Taking you to onboarding...</p>
