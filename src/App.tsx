@@ -7,6 +7,8 @@ import DashboardPage from "./pages/DashboardPage"
 import WasteGeneratorOnboardingPage from "./pages/WasteGeneratorOnboardingPage"
 import AggregatorOnboardingPage from "./pages/AggregatorOnboardingPage"
 import UserTypeSelectionPage from "./pages/UserTypeSelectionPage"
+import RecyclerOnboardingPage from "./pages/RecyclerOnboardingPage"
+import CountyOfficialOnboardingPage from "./pages/CountyOfficialOnboardingPage"
 
 
 
@@ -35,6 +37,9 @@ function App() {
         <Route path="/onboarding/waste-generator" element={<WasteGeneratorOnboardingPage />} />
         <Route path="/onboarding/aggregator" element={<AggregatorOnboardingPage />} />
         <Route path="/onboarding/select-type" element={<UserTypeSelectionPage />} />
+
+        <Route path="/onboarding/recycler" element={<RecyclerOnboardingPage />} />
+        <Route path="/onboarding/county-official" element={<CountyOfficialOnboardingPage />} />
       </Routes>
     </>
   )
