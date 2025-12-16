@@ -152,7 +152,7 @@ const RecyclersOnboarding = () => {
         >
             <div className='w-full max-w-2xl bg-gray-800 rounded-lg shadow-2xl border border-gray-700 overflow-hidden'>
                 {/* Header */}
-                <div className='bg-linear-to-r from-emerald-600 to-emerald-400 p-6'>
+                <div className='bg-linear-to-tl from-emerald-800 via-emerald-700 to-emerald-950 p-6'>
                     <h1 className='md:text-3xl text-xl text-center font-bold text-white mb-2 flex items-center justify-center gap-2'>
                         <Factory className='w-8 h-8' />
                         Recycler Onboarding
@@ -160,7 +160,7 @@ const RecyclersOnboarding = () => {
                     <p className='text-emerald-50 text-center mt-4'>Complete your facility profile</p>
 
                     {/* Progress Bar */}
-                    <div className='mt-4 bg-gray-500/30 rounded-full h-2 overflow-hidden'>
+                    <div className='mt-4 bg-gray-300/50 rounded-full h-2 overflow-hidden'>
                         <div
                             className={`h-full transition-all duration-300 ease-in-out
                                 ${progressPercentage <= 20 ? 'bg-red-500'
@@ -293,7 +293,7 @@ const RecyclersOnboarding = () => {
                                     <DollarSign className='w-6 h-6 text-emerald-400' />
                                     Buying Prices per KG
                                 </h2>
-                                <p className='text-gray-400 mb-6'>Optional but helps attract suppliers</p>
+                                <p className='text-gray-400 mb-6'>This is <span className='text-emerald-500'>(Optional)</span>  but helps attract suppliers</p>
                             </div>
 
                             <div className='space-y-4'>

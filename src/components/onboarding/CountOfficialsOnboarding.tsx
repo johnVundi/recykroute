@@ -128,7 +128,7 @@ const CountOfficialsOnboarding = () => {
         >
             <div className='w-full max-w-2xl bg-gray-800 rounded-lg shadow-2xl border border-gray-700 overflow-hidden'>
                 {/* Header */}
-                <div className='bg-linear-to-r from-blue-600 to-blue-400 p-6'>
+                <div className='bg-linear-to-br from-orange-900 via-orange-800 to-orange-950 p-6'>
                     <h1 className='md:text-3xl text-xl text-center font-bold text-white mb-2 flex items-center justify-center gap-2'>
                         <ShieldCheck className='w-8 h-8' />
                         County Official Onboarding
@@ -136,7 +136,7 @@ const CountOfficialsOnboarding = () => {
                     <p className='text-blue-50 text-center mt-4'>Setup your administrative profile</p>
 
                     {/* Progress Bar */}
-                    <div className='mt-4 bg-gray-500/30 rounded-full h-2 overflow-hidden'>
+                    <div className='mt-4 bg-gray-400 rounded-full h-2 overflow-hidden'>
                         <div
                             className={`h-full transition-all duration-300 ease-in-out
                                 ${progressPercentage <= 33 ? 'bg-red-500'
@@ -158,7 +158,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <UserCog className='w-6 h-6 text-blue-400' />
+                                    <UserCog className='w-6 h-6 text-orange-400' />
                                     Select Your Role
                                 </h2>
                                 <p className='text-gray-400 mb-6'>What is your position in the county government?</p>
@@ -170,7 +170,7 @@ const CountOfficialsOnboarding = () => {
                                         key={role.value}
                                         onClick={() => handleInputChange('role', role.value)}
                                         className={`w-full p-4 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.role === role.value
-                                            ? 'border-blue-400 bg-blue-400/10'
+                                            ? 'border-orange-400 bg-orange-400/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
@@ -183,7 +183,7 @@ const CountOfficialsOnboarding = () => {
                                                 </div>
                                             </div>
                                             {formData.role === role.value && (
-                                                <CheckCircle2 className='w-6 h-6 text-blue-400' />
+                                                <CheckCircle2 className='w-6 h-6 text-orange-400' />
                                             )}
                                         </div>
                                     </button>
@@ -197,7 +197,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <Lock className='w-6 h-6 text-blue-400' />
+                                    <Lock className='w-6 h-6 text-orange-400' />
                                     Permission Level
                                 </h2>
                                 <p className='text-gray-400 mb-6'>What level of system access do you need?</p>
@@ -209,7 +209,7 @@ const CountOfficialsOnboarding = () => {
                                         key={level.value}
                                         onClick={() => handleInputChange('permissionLevel', level.value)}
                                         className={`w-full p-4 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.permissionLevel === level.value
-                                            ? 'border-blue-400 bg-blue-400/10'
+                                            ? 'border-orange-400 bg-orange-400/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
@@ -218,7 +218,7 @@ const CountOfficialsOnboarding = () => {
                                                 <span className='text-3xl'>{level.icon}</span>
                                                 <div>
                                                     <h3 className={`font-semibold text-lg
-                                                        ${level.color === 'blue' ? 'text-blue-400'
+                                                        ${level.color === 'blue' ? 'text-white'
                                                             : level.color === 'yellow' ? 'text-yellow-400'
                                                                 : level.color === 'orange' ? 'text-orange-400'
                                                                     : 'text-red-400'}`}>
@@ -228,7 +228,7 @@ const CountOfficialsOnboarding = () => {
                                                 </div>
                                             </div>
                                             {formData.permissionLevel === level.value && (
-                                                <CheckCircle2 className='w-6 h-6 text-blue-400' />
+                                                <CheckCircle2 className='w-6 h-6 text-orange-400' />
                                             )}
                                         </div>
                                     </button>
@@ -257,7 +257,7 @@ const CountOfficialsOnboarding = () => {
                         <div className='space-y-6'>
                             <div>
                                 <h2 className='text-2xl font-bold text-white mb-2 flex items-center gap-2'>
-                                    <Building2 className='w-6 h-6 text-blue-400' />
+                                    <Building2 className='w-6 h-6 text-orange-400' />
                                     Department
                                 </h2>
                                 <p className='text-gray-400 mb-6'>Which department are you part of?</p>
@@ -269,7 +269,7 @@ const CountOfficialsOnboarding = () => {
                                         key={dept.value}
                                         onClick={() => handleInputChange('department', dept.value)}
                                         className={`w-full p-5 rounded-lg cursor-pointer border-2 transition-all duration-200 text-left ${formData.department === dept.value
-                                            ? 'border-blue-400 bg-blue-400/10'
+                                            ? 'border-orange-400 bg-orange-400/10'
                                             : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                                             }`}
                                     >
@@ -279,7 +279,7 @@ const CountOfficialsOnboarding = () => {
                                                 <h3 className='text-white font-semibold text-xl'>{dept.label}</h3>
                                             </div>
                                             {formData.department === dept.value && (
-                                                <CheckCircle2 className='w-7 h-7 text-blue-400' />
+                                                <CheckCircle2 className='w-7 h-7 text-orange-400' />
                                             )}
                                         </div>
                                     </button>
@@ -289,7 +289,7 @@ const CountOfficialsOnboarding = () => {
                             {/* Summary Card */}
                             <div className='mt-8 p-5 bg-gray-700/50 rounded-lg border border-gray-600'>
                                 <h3 className='text-white font-semibold mb-3 flex items-center gap-2'>
-                                    <CheckCircle2 className='w-5 h-5 text-blue-400' />
+                                    <CheckCircle2 className='w-5 h-5 text-orange-400' />
                                     Profile Summary
                                 </h3>
                                 <div className='space-y-2 text-sm'>
